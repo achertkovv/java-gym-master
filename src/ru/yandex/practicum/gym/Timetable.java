@@ -1,7 +1,5 @@
 package ru.yandex.practicum.gym;
 
-import jdk.dynalink.linker.ConversionComparator;
-
 import java.util.*;
 
 /// получить все тренировки за конкретный день недели
@@ -26,7 +24,7 @@ public class Timetable {
         List<TrainingSession> trainingsList;
         if (training.containsKey(trainingSession.getTimeOfDay())) {
             trainingsList = training.get(trainingSession.getTimeOfDay());
-        } else{
+        } else {
             trainingsList = new ArrayList<>();
         }
         trainingsList.add(trainingSession);
