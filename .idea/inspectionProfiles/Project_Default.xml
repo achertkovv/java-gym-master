@@ -18,9 +18,12 @@
       <option name="m_requireAnnotationsFirst" value="true" />
     </inspection_tool>
     <inspection_tool class="OptionalOfNullableMisuseMerged" />
+    <inspection_tool class="RawUseOfParameterizedType" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="RedundantCast" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="SerializableHasSerialVersionUIDField" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="superClassString" value="" />
     </inspection_tool>
+    <inspection_tool class="SuspiciousIndentAfterControlStatement" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="UNCHECKED_WARNING" enabled="false" level="WARNING" enabled_by_default="false" />
   </profile>
 </component>
