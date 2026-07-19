@@ -19,6 +19,10 @@ public class Timetable {
         } else {
             training = new TreeMap<>();
         }
+        // метод падает с NPE, если за указанный день вообще нет тренировок: timetable.get(dayOfWeek)
+        // вернет null, и следующая строка обратится к нему.
+        // Это не редкий сценарий, а обычный запрос администратора про пустой день.
+        if (training == null) return;
         // Не забудьте учесть, что в одно время может
         // начинаться сразу несколько тренировок!
         List<TrainingSession> trainingsList;
@@ -27,6 +31,10 @@ public class Timetable {
         } else {
             trainingsList = new ArrayList<>();
         }
+        // метод падает с NPE, если за указанный день вообще нет тренировок: timetable.get(dayOfWeek)
+        // вернет null, и следующая строка обратится к нему.
+        // Это не редкий сценарий, а обычный запрос администратора про пустой день.
+        if (trainingsList == null) return;
         trainingsList.add(trainingSession);
         training.put(trainingSession.getTimeOfDay(), trainingsList);
         timetable.put(trainingSession.getDayOfWeek(), training);
@@ -40,6 +48,8 @@ public class Timetable {
     public List<TrainingSession> getTrainingSessionsForDayAndTime(DayOfWeek dayOfWeek, TimeOfDay timeOfDay) {
         //как реализовать, тоже непонятно, но сложность должна быть О(1)
         TreeMap<TimeOfDay, List<TrainingSession>> trainingSessions = timetable.get(dayOfWeek);
+        // Добавьте проверку и возвращайте пустой список.
+        if (trainingSessions == null) return new ArrayList<>();
         return trainingSessions.get(timeOfDay);
     }
 
@@ -55,7 +65,7 @@ public class Timetable {
             }
         }
 
-        List<CounterOfTrainings> trainingsByCount = new ArrayList(map.values());
+        List<CounterOfTrainings> trainingsByCount = new ArrayList<>(map.values());
         Collections.sort(trainingsByCount);
         return trainingsByCount;
     }

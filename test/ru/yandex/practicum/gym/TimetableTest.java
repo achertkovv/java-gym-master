@@ -183,12 +183,12 @@ public class TimetableTest {
         timetable.addNewTrainingSession(new TrainingSession(groupAdult, coachPetrov,
                 DayOfWeek.THURSDAY, new TimeOfDay(20, 0)));
 
-        // Проверить, что для что это именно тренер coachPetrov
+        // Проверить, что это именно тренер coachPetrov
         assertEquals(coachPetrov, timetable.getCountByCoaches().get(0).getCoach());
         // И у него 2 занятия в неделю
         assertEquals(2, timetable.getCountByCoaches().get(0).getCount());
 
-        // Проверить, что для что это именно тренер coachIvanov
+        // Проверить, что это именно тренер coachIvanov
         assertEquals(coachIvanov, timetable.getCountByCoaches().get(1).getCoach());
         // И у него 1 занятие в неделю
         assertEquals(1, timetable.getCountByCoaches().get(1).getCount());
